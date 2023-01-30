@@ -126,20 +126,20 @@ The main hypotesis confirmed in the EDA step:
 ### H1. Stores with larger assortments should sell more.
 **False** <br />Stores with larger assortments should sell less.
 
-![Sales sum by assortment]()
+![Sales sum by assortment](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/h1.png)
 
 
 ### H2. Stores with closer competitors should sell less.
 **False**  <br />Stores with closer competitors sell more.
 
-![Sales by competition distance (bin = 0-1000)](https://user-images.githubusercontent.com/77629603/155381618-a59fdbc2-e4af-45dd-8458-3159ddc01eac.png)
+![Sales by competition distance (bin = 0-1000)](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/h2.png)
 
 
 ### H3. Stores with longer active promotions should sell more.
 **False** <br />We can see that sales increase in the standard promos and decreases in the extended promos.
 (Negative promo duration is regular promo, positive promo duration is extanded promo)
 
-![Regplot representing sales by promo duration](https://user-images.githubusercontent.com/77629603/155382386-6c6462ab-0820-4dae-a1ca-51ea9a0aad33.png)
+![Regplot representing sales by promo duration](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/Regular%20promo.png)
 
 Note: Sales = Revenue
 
@@ -147,14 +147,15 @@ Note: Sales = Revenue
 The model generates a dataframe with the prediction of each store and the respectives worst and best scenarios. 
 The CFO now can know the budget available to renovate the stores, with 90% accuracy.
 
-![First 15 rows of the prediction dataset.](https://user-images.githubusercontent.com/77629603/155379600-1321b4d9-6db2-4941-80cf-96012798fe00.png)
 
-The user can get the results by Telegram. Here is some [demonstration](https://www.linkedin.com/posts/heitor-felix_datascience-datadriven-business-activity-6902361790051606528-2Fjo)!
+The user can get the results by Telegram. Here is some [demonstration](https://web.telegram.org/k/#@rossmann_john_bot)!
 
 ## 4.3. Machine Learning Performance
 
 **Final model performance**
-![image](https://user-images.githubusercontent.com/77629603/162584149-291cea37-819d-4f18-bd67-0aac45349557.png)
+| Model name | MAE   | MAPE  | RMSE  |
+|------------|-------|-------|-------|
+| XGBoost    |646.797| 0.094 |949.715| 
 
 Here is the demonstration of the model prediction vs real sales by date
 
