@@ -3,127 +3,118 @@
 ![](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/rossmann.jpeg)
 
 
-# 1. Contexto  
-  
-  Esse projeto foi baseado em um desafio do Kaggle, que visa simular um problema de negocio real.
-  A Rossmann 'e uma das maiores redes de drogarias da Europa, presente em 7 paises conta com mais de 4000 filiais.
-  Os gerentes de lojas da Rossmann estão atualmente responsáveis por prever as vendas diárias de suas lojas com antecedência de até seis semanas. A quantidade de vendas é afetada por uma série de fatores, incluindo promoções, concorrência, feriados escolares e estaduais, variações sazonais e localidade. Com milhares de gerentes fazendo previsões baseadas nos seus conhecimentos empricos e condicoes unicas de cada loja,a precisão dos resultados pode ser bastante variável.
- 
+# 1. Context
 
-# 2. Desafio
+This project is based in a Kaggle Challenge wich simulates a business problem. Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, seasonality, and locality. 
 
-## 2.1. Problema
-O CFO quer fazer reformas nas lojas, mas para saber quanto pode gastar quer prever as vendas das proximas semanas.
+# 2. Challenge
 
-## 2.2. Motivacoes
+## 2.1. Problem
 
-* O processo de previsao atual e imprecisso 
+The CFO wants to renovate the stores, but he wants to be sure how much he can spend based on the future sales.
 
-* O processo de previsão atual não é padronizado e baseado em dados
+## 2.2. Causes
 
-* Atualmente a previsão de vendas é feita manualmente pelas 1.115 lojas, o que a torna lenta e custosa
+* Current prediction proccess is inaccurate 
 
-* A visualizao da previsao de vendas so esta disponivel no computador
+* Current prediction proccess isn't scientific and data-driven
 
-## 2.3. Premissas do negocio
-* Os dados contêm informações históricas de 1115 lojas;
-* Os dados disponiveis estao compreendidos entre 01/01/2013 e 31/07/2015;
-* Valores nulos de distância de competidor foram substituídos por 200.000 metros, assumindo que nao ha competidor proximo.
-* Nao foram considerados os dias que as lojas estiveram fechadas.
+* Current sales prediction is done manually by the 1,115 stores
+
+* Sales visualization was limited to the computer
+
+## 2.3. Business Assumptions
+* The data contains historical data of 1115 stores;
+* The data available are between 2013-01-01 and 2015-07-31;
+* Null values of competition distance was replaced to 200.000 meters, assuming that there are no competitors
+* Days when the stores were closed, were not considered
 <details>
 <summary>Features definition</summary>
   
- **Atributos**        |  **Descrição**  |
-| ------------------- | ------------------- |
-|  id | um Id que representa um (Store, Date) concatenado dentro do conjunto de teste |
-|  Store |  um id único para cada loja |
-|  Sales |  o volume de vendas em um determinado dia |
-|  Customers |  o número de clientes em um determinado dia |
-|  Open |  um indicador para saber se a loja estava aberta: 0 = fechada, 1 = aberta |
-|  StateHoliday |  indica um feriado estadual. Normalmente todas as lojas, com poucas exceções, fecham nos feriados estaduais. Observe que todas as escolas fecham nos feriados e finais de semana. a = feriado, b = feriado da Páscoa, c = Natal, 0 = Nenhum |
-| SchoolHoliday |  indica se (Store, Date) foi afetada pelo fechamento de escolas públicas |
-|  StoreType |  diferencia entre 4 modelos de loja diferentes: a, b, c, d |
-|  Assortment |  descreve um nível de sortimento: a = básico, b = extra, c = estendido |
-|  CompetitionDistance |  distância em metros até a loja concorrente mais próxima |
-|  CompetitionOpenSince[Month/Year] |  apresenta o ano e mês aproximados em que o concorrente mais próximo foi aberto |
-|  Promo |  indica se uma loja está fazendo uma promoção naquele dia |
-|  Promo2 |  Promo2 é uma promoção contínua e consecutiva para algumas lojas: 0 = a loja não está participando, 1 = a loja está participando |
-|  Promo2Since[Year/Week] |  descreve o ano e a semana em que a loja começou a participar da Promo2 |
-|  PromoInterval          | descreve os intervalos consecutivos de início da promoção 2, nomeando os meses em que a promoção é iniciada novamente. Por exemplo. "Fev, maio, agosto, novembro" significa que cada rodada começa em fevereiro, maio, agosto, novembro de qualquer ano para aquela loja |
+| Feature                | Definition                                                                                               |
+|------------------------|----------------------------------------------------------------------------------------------------------|
+| id                     | unique id that represent store and date of sale                                                          |
+| store                  | a unique Id for each store                                                                               |
+| sales                  | the turnover for any given day (target variable)                                                         |
+| customers              | the number of customers on a given day                                                                   |
+| open                   | an indicator for whether the store was open (0/1)                                                        |
+| state holiday          | indicates a state holiday (a = public holiday, b = Easter holiday, c = Christmas, 0 = None)              |
+| school holiday         | indicates if the (Store, Date) was affected by the closure of public schools                             |
+| store type             | differentiates between 4 different store models. (a, b, c, d)                                            |
+| assortment             | describes an assortment level (a = basic, b = extra, c = extended)                                       |
+| competition distance   | distance in meters to the nearest competitor store                                                       |
+| competition open since | gives the approximate year and month of the time the nearest competitor was opened                       |
+| promo                  | indicates whether a store is running a promo on that day                                                 |
+| promo 2                | Promo2 is a continuing and consecutive promotion for some stores (0/1)                                   |
+| promo 2 since          | describes the year and calendar week when the store started participating in Promo2                      |
+| promo interval         | describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew.  |
   
  </details>
  
  
 
-## 2.4. Solucao
+## 2.4. Solution
 
-* Usar um modelo de machine learning para prever as vendas de cada loja
+* Using Machine Learning model to make sales prediction of every store
 
-* Disponibilizar a previsao de vendas no telegran, atraves de uma API
+* Sales prediction visualization may be made by Telegram request (API)
 
-# 3. Etaspas da solucao
+# 3. Solution Development
 
 ## 3.1. Data Description 
 
-Vizualizar a tabela, cheacar e tratar celulas vazias e valores nulos 
+Checking the shape of the datase, nulls and filling the nulls values. 
 
 ## 3.2. Feature Engineering
 
-Criacao de novos atributos
+Creating new attributes from the original data. 
 
 <details>
-<summary>Novos Atributos </summary>
+<summary>Features created</summary>
 
-| Atibuto           | Definicao                                          |
+| Feature           | Definition                                         |
 |-------------------|----------------------------------------------------|
-| year              | Ano, obtido a partir data                          |
-| month             | Mes, obtido a partir data                          |
-| day               | Dia, obtido a partir data                          |
-| week of year      | Semana do ano, obtido a partir data                |
-| year week         | Ano e semana, obtido a partir data (Ano-Semana)    |
-| promo since       | Data desde que a promocao comecou (Ano-Semana)     |
-| competition since | Data desde que concorrente abriu  (Ano, Mes, Ano)  |
+| year              | year extracted from date                           |
+| month             | month extracted from date                          |
+| day               | day extracted from date                            |
+| week of year      | week of year extracted from date                   |
+| year week         | year week extracted from date (Y-W)                |
+| promo since       | date since promotion started (Y-W)                 |
+| competition since | date since competition started (year, month, year) |
 
 </details>
 
 
 
-## 3.3. Analise de dados exploratoria
+## 3.3. Exploratory Data Analysis
 
-Buscar insights atraves da visualizao de graficos, fazer correlacoes entre os atributos e testar as hipoteses.
+Trying to get insights by data analysis with graphs, histograms, plotlines and barplot. Also checking the correlation of the features and testing hypotesis.
 
+## 3.4. Data Preparation
 
-## 3.4. Preparacao dos dados
+Using normalization, rescaling and encoding to prepare the data to the Machine Learning model. Sine and cossine transformations were used in cyclical features as month, day and week of year.
 
-Processo de normalizacao,rescaling e
+## 3.5. Feature Selection
 
-Using normalization, rescaling e and encoding to prepare the data to the Machine Learning model. Sine and cossine transformations were used in cyclical features as month, day and week of year.
+Using the Boruta algorithm to select the most important features to get the best Machine Learning performance.
 
-## 3.5. Selecao de atributos
+## 3.6. Machine Learning Model
 
-Foi usado o Boruta, um algoritimo que ajuda a escolher os atributos mais relevates para o modelo
+Training different Machine Learning models and comparing errors. The choosen method was the XGBoost Regressor because of the speed and accuracy of the model.
 
+![Performances without fine tuning](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/mlcompare.png)
 
-## 3.6. Modelo de machine learning
+## 3.7. Error Translation
 
-Foram treinados diferentes modelos de machine learning e feita a comparacao de erros entre eles. O modelo escolhido foi o XGBoost, que apresentou melhor acuracia e velocidade.
+Giving business meaning to the project, translating accuracy in values to the business.
 
+## 3.8. Deploy and Telegram BOT
 
-![Performance sem ajuste fino](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/mlcompare.png)
-
-## 3.7. Traducao do erro
-
-Trazendo pra linguagem de negocios, foi mensurado em valores a acuracia do modelo
-
-
-## 3.8. Deploy e bot do Telegran
-
-Foi feito o deply no Render e usado o Flask na API de requisicao ao telegram<br>  
-O usuario informa qual o numero da loja que deseja ver a previsao de vendas das proximas 6 semanas
- 
+Deploy in the Heroku Cloud and configurating Flask API request by a Telegram Bot. 
+The user types /store_id and gets the sales prediction of this store for the next six weeks.
 
 
-<img src="https://user-images.githubusercontent.com/77629603/162584257-c7783ef3-d434-4910-9878-c2bfb4057228.png" alt="" style="width:300px;"/>
+<img src="https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/bot%20telegran.jpg" alt="" style="width:300px;"/>
 
 
 # 4. Results and Conclusion
@@ -135,7 +126,7 @@ The main hypotesis confirmed in the EDA step:
 ### H1. Stores with larger assortments should sell more.
 **False** <br />Stores with larger assortments should sell less.
 
-![Sales sum by assortment](https://user-images.githubusercontent.com/77629603/155387884-6c33a7be-82e5-4c57-8648-28bf0f217aae.png)
+![Sales sum by assortment]()
 
 
 ### H2. Stores with closer competitors should sell less.
