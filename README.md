@@ -145,8 +145,9 @@ Note: Sales = Revenue
 
 ## 4.2.Conclusion
 The model generates a dataframe with the prediction of each store and the respectives worst and best scenarios. 
-The CFO now can know the budget available to renovate the stores, with 90% accuracy.
+The CFO now can know the budget available to renovate the stores, with 90% accuracy.+
 
+![First 15 rows of the prediction dataset.](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/predctions.png)  
 
 The user can get the results by Telegram. Here is some [demonstration](https://web.telegram.org/k/#@rossmann_john_bot)!
 
@@ -159,7 +160,7 @@ The user can get the results by Telegram. Here is some [demonstration](https://w
 
 Here is the demonstration of the model prediction vs real sales by date
 
-![Seaborn lineplot](https://user-images.githubusercontent.com/77629603/155380531-060fbf29-4f30-486f-b875-4d3b0ead5178.png)
+![Seaborn lineplot](https://github.com/70HNM4C13L/rossmann_store_sales/blob/main/img/salesxpredctions.png)
 
 
 # 5. Next Steps
